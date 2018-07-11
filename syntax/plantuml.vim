@@ -59,6 +59,7 @@ syntax keyword plantumlColor Sienna Silver SkyBlue SlateBlue SlateGray SlateGrey
 syntax keyword plantumlColor TECHNOLOGY Tan Teal Thistle Tomato Turquoise Violet Wheat White WhiteSmoke
 syntax keyword plantumlColor Yellow YellowGreen
 
+
 " Arrows - Differentiate between horizontal and vertical arrows
 syntax match plantumlHorizontalArrow /\%([-\.]\%(|>\|>\|\*\|o\>\|\\\\\|\\\|\/\/\|\/\|\.\|-\)\|\%(<|\|<\|\*\|\<o\|\\\\\|\\\|\/\/\|\/\)[\.-]\)\%(\[[^\]]*\]\)\?/ contains=plantumlLabel
 syntax match plantumlDirectedOrVerticalArrowLR /[-\.]\%(le\?f\?t\?\|ri\?g\?h\?t\?\|up\?\|do\?w\?n\?\)\?[-\.]\%(|>\|>>\|>\|\*\|o\>\|\\\\\|\\\|\/\/\|\/\|\.\|-\)\%(\[[^\]]*\]\)\?/ contains=plantumlLabel
@@ -110,6 +111,17 @@ syntax match plantumlActivityLabel /\%(^\%(#\S\+\)\?\)\@<=:\_[^;|<>/\]}]\+[;|<>/
 syntax match plantumlSequenceDivider /^\s*==[^=]\+==\s*$/
 syntax match plantumlSequenceSpace /^\s*|||\+\s*$/
 syntax match plantumlSequenceSpace /^\s*||\d\+||\+\s*$/
+"
+" Differentiate between Source and  Target lines
+"
+syntax match plantumlSrcComponent  /^\zs\S\+\ze\s*-\+>/
+syntax match plantumlSrcComponent  /^\zs\S\+\ze\s*<-\+/
+" syntax match plantumlDstComponent  /^.*>\s*\zs\S\*\ze\s*:.*/
+" syntax match plantumlDstComponent  /^.*\<\s*\zs\S\*\ze\s*:.*/
+syntax match plantumlDstComponent  /\>\zs.*\ze:/
+syntax match plantumlDstComponent  /\<\-\zs.*\ze:/
+
+
 
 " Usecase diagram
 syntax match plantumlUsecaseActor /:.\{-1,}:/ contains=plantumlSpecialString
@@ -275,6 +287,7 @@ syntax keyword plantumlSkinparamKeyword usecaseActorStereotypeFontName usecaseAc
 syntax keyword plantumlSkinparamKeyword usecaseActorStereotypeFontStyle usecaseArrowColor usecaseArrowFontColor
 syntax keyword plantumlSkinparamKeyword usecaseArrowFontName usecaseArrowFontSize usecaseArrowFontStyle
 syntax case match
+
 
 " Highlight
 highlight default link plantumlCommentTODO Todo
