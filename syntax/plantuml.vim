@@ -118,8 +118,10 @@ syntax match plantumlSrcComponent  /^\zs\S\+\ze\s*-\+>/
 syntax match plantumlSrcComponent  /^\zs\S\+\ze\s*<-\+/
 " syntax match plantumlDstComponent  /^.*>\s*\zs\S\*\ze\s*:.*/
 " syntax match plantumlDstComponent  /^.*\<\s*\zs\S\*\ze\s*:.*/
-syntax match plantumlDstComponent  /\>\zs.*\ze:/
+" syntax match plantumlDstComponent  /-->\zs.*\ze:/ contains=plantumlHorizontalArrow
+syntax match plantumlDstComponent  /\>\zs.*\ze:/ contains=plantumlHorizontalArrow
 syntax match plantumlDstComponent  /\<\-\zs.*\ze:/
+syntax match plantumlDstComponent  /\<\-\-\zs.*\ze:/
 
 
 
